@@ -7907,8 +7907,7 @@ function cloud_drizzle_extends() { cloud_drizzle_extends = Object.assign ? Objec
 var SvgCloudDrizzle = function SvgCloudDrizzle(props) {
   return /*#__PURE__*/react.createElement("svg", cloud_drizzle_extends({
     xmlns: "http://www.w3.org/2000/svg",
-    width: 26,
-    height: 26
+    viewBox: "0 0 26 26"
   }, props), cloud_drizzle_g || (cloud_drizzle_g = /*#__PURE__*/react.createElement("g", {
     fill: "none",
     fillRule: "evenodd",
@@ -7943,15 +7942,11 @@ var SvgIconList = function SvgIconList(props) {
 };
 /* harmony default export */ const icon_list = (SvgIconList);
 ;// CONCATENATED MODULE: ./index.jsx
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function index_extends() { index_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return index_extends.apply(this, arguments); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -8047,9 +8042,9 @@ function SunIcon(props) {
     id: "sun",
     transform: "translate(1.000000, 1.000000)",
     stroke: "currentColor",
-    "stroke-linecap": "round",
-    "stroke-linejoin": "round",
-    "stroke-width": "2"
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "2"
   }, /*#__PURE__*/react.createElement("circle", {
     id: "Oval",
     strokeOpacity: props.circleOpacity,
@@ -8100,7 +8095,6 @@ function SunIcon(props) {
   })))))))));
 }
 function TemperatureIcon(props) {
-  var _React$createElement;
   return /*#__PURE__*/react.createElement("svg", {
     width: "24px",
     height: "24px",
@@ -8135,12 +8129,15 @@ function TemperatureIcon(props) {
     y: "0",
     width: "24",
     height: "24"
-  }), /*#__PURE__*/react.createElement("path", (_React$createElement = {
+  }), /*#__PURE__*/react.createElement("path", {
     d: "M14.0003489,14.76 L14.0003489,3.5 C14.0003489,2.11928813 12.8810608,1 11.5003489,1 C10.119637,1 9.00034891,2.11928813 9.00034891,3.5 L9.00034891,14.76 C7.35223452,15.8611927 6.61873572,17.911099 7.19410587,19.8079004 C7.76947602,21.7047019 9.51820196,23.0016574 11.5003489,23.0016574 C13.4824959,23.0016574 15.2312218,21.7047019 15.806592,19.8079004 C16.3819621,17.911099 15.6484633,15.8611927 14.0003489,14.76 Z",
     id: "Shape",
-    strokeOpacity: "0.4",
-    stroke: props.shapeColor
-  }, _defineProperty(_React$createElement, "strokeOpacity", props.shapeOpacity), _defineProperty(_React$createElement, "strokeWidth", "2"), _defineProperty(_React$createElement, "strokeLinecap", "round"), _defineProperty(_React$createElement, "strokeLinejoin", "round"), _React$createElement)), /*#__PURE__*/react.createElement("circle", {
+    stroke: props.shapeColor,
+    strokeOpacity: props.shapeOpacity,
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }), /*#__PURE__*/react.createElement("circle", {
     id: "Oval-2",
     fill: props.circleColor,
     fillOpacity: props.circleOpacity,
@@ -8413,7 +8410,7 @@ function Main() {
   }, "+19", /*#__PURE__*/react.createElement("span", {
     className: "a11y-hidden"
   }, "\xB0"), /*#__PURE__*/react.createElement(cloud_drizzle, {
-    className: 'hero-dashboard__item-icon'
+    className: 'hero-dashboard__icon hero-dashboard__item-icon'
   }))))), /*#__PURE__*/react.createElement("ul", {
     className: "hero-dashboard__schedule"
   }, /*#__PURE__*/react.createElement(Event, {

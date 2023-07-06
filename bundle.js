@@ -7861,8 +7861,7 @@ function _extends() { _extends = Object.assign ? Object.assign.bind() : function
 var SvgLogo = function SvgLogo(props) {
   return /*#__PURE__*/react.createElement("svg", _extends({
     xmlns: "http://www.w3.org/2000/svg",
-    width: 112.884,
-    height: 38.04
+    viewBox: "0 0 112.88 38.04"
   }, props), _path || (_path = /*#__PURE__*/react.createElement("path", {
     fill: "red",
     d: "M9.35 21.43v8.68h2.44V7.45H8.15c-3.59 0-6.6 2.38-6.6 7.13 0 3.39 1.33 5.23 3.33 6.25L.63 30.11h2.83l3.86-8.68zm0-2.03h-1.3c-2.12 0-3.87-1.17-3.87-4.82 0-3.77 1.91-5.07 3.87-5.07h1.3z"
@@ -7871,67 +7870,8 @@ var SvgLogo = function SvgLogo(props) {
   })));
 };
 /* harmony default export */ const logo = (SvgLogo);
-;// CONCATENATED MODULE: ./assets/icon_temperature.svg
-var _g;
-function icon_temperature_extends() { icon_temperature_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return icon_temperature_extends.apply(this, arguments); }
-
-var SvgIconTemperature = function SvgIconTemperature(props) {
-  return /*#__PURE__*/react.createElement("svg", icon_temperature_extends({
-    xmlns: "http://www.w3.org/2000/svg",
-    width: 24,
-    height: 24
-  }, props), _g || (_g = /*#__PURE__*/react.createElement("g", {
-    fill: "none",
-    fillRule: "evenodd"
-  }, /*#__PURE__*/react.createElement("path", {
-    d: "M0 0h24v24H0z"
-  }), /*#__PURE__*/react.createElement("path", {
-    stroke: "currentColor",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    strokeOpacity: 0.4,
-    strokeWidth: 2,
-    d: "M14 14.76V3.5a2.5 2.5 0 1 0-5 0v11.26a4.5 4.5 0 1 0 5 0Z"
-  }), /*#__PURE__*/react.createElement("circle", {
-    cx: 11.5,
-    cy: 18.5,
-    r: 3.5,
-    fill: "currentColor",
-    fillOpacity: 0.1,
-    fillRule: "nonzero"
-  }))));
-};
-/* harmony default export */ const icon_temperature = (SvgIconTemperature);
-;// CONCATENATED MODULE: ./assets/icon_sun.svg
-var icon_sun_g;
-function icon_sun_extends() { icon_sun_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return icon_sun_extends.apply(this, arguments); }
-
-var SvgIconSun = function SvgIconSun(props) {
-  return /*#__PURE__*/react.createElement("svg", icon_sun_extends({
-    xmlns: "http://www.w3.org/2000/svg",
-    width: 24,
-    height: 24
-  }, props), icon_sun_g || (icon_sun_g = /*#__PURE__*/react.createElement("g", {
-    fill: "none",
-    fillRule: "evenodd",
-    stroke: "currentColor",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    strokeWidth: 2,
-    transform: "translate(1 1)"
-  }, /*#__PURE__*/react.createElement("circle", {
-    cx: 11,
-    cy: 11,
-    r: 5,
-    strokeOpacity: 0.4
-  }), /*#__PURE__*/react.createElement("path", {
-    strokeOpacity: 0.1,
-    d: "M11 0v2M11 20v2M3.22 3.22l1.42 1.42M17.36 17.36l1.42 1.42M0 11h2M20 11h2M3.22 18.78l1.42-1.42M17.36 4.64l1.42-1.42"
-  }))));
-};
-/* harmony default export */ const icon_sun = (SvgIconSun);
 ;// CONCATENATED MODULE: ./assets/icon_scheduled.svg
-var icon_scheduled_g;
+var _g;
 function icon_scheduled_extends() { icon_scheduled_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return icon_scheduled_extends.apply(this, arguments); }
 
 var SvgIconScheduled = function SvgIconScheduled(props) {
@@ -7939,7 +7879,7 @@ var SvgIconScheduled = function SvgIconScheduled(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 24,
     height: 24
-  }, props), icon_scheduled_g || (icon_scheduled_g = /*#__PURE__*/react.createElement("g", {
+  }, props), _g || (_g = /*#__PURE__*/react.createElement("g", {
     fill: "none",
     fillRule: "evenodd"
   }, /*#__PURE__*/react.createElement("path", {
@@ -8003,19 +7943,21 @@ var SvgIconList = function SvgIconList(props) {
 };
 /* harmony default export */ const icon_list = (SvgIconList);
 ;// CONCATENATED MODULE: ./index.jsx
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function index_extends() { index_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return index_extends.apply(this, arguments); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
 
 
 
@@ -8045,7 +7987,9 @@ function Header() {
     href: "/",
     className: "header__logo",
     "aria-label": "\u042F\u043D\u0434\u0435\u043A\u0441.\u0414\u043E\u043C"
-  }, /*#__PURE__*/react.createElement(logo, null)), /*#__PURE__*/react.createElement("button", {
+  }, /*#__PURE__*/react.createElement(logo, {
+    className: 'header__logo-icon'
+  })), /*#__PURE__*/react.createElement("button", {
     className: "header__menu",
     "aria-expanded": expanded ? 'true' : 'false',
     onClick: onClick
@@ -8071,6 +8015,141 @@ function Header() {
     href: "/scripts"
   }, "\u0421\u0446\u0435\u043D\u0430\u0440\u0438\u0438"))));
 }
+function SunIcon(props) {
+  return /*#__PURE__*/react.createElement("svg", {
+    width: "24px",
+    height: "24px",
+    viewBox: "0 0 24 24",
+    version: "1.1",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/react.createElement("title", null, "icon_sun"), /*#__PURE__*/react.createElement("desc", null, "Created with Sketch."), /*#__PURE__*/react.createElement("defs", null), /*#__PURE__*/react.createElement("g", {
+    id: "Final",
+    stroke: "none",
+    strokeWidth: "1",
+    fill: "none",
+    fillRule: "evenodd"
+  }, /*#__PURE__*/react.createElement("g", {
+    id: "v1-2-1-home-dashboard",
+    transform: "translate(-464.000000, -404.000000)"
+  }, /*#__PURE__*/react.createElement("g", {
+    id: "status",
+    transform: "translate(39.000000, 195.000000)"
+  }, /*#__PURE__*/react.createElement("g", {
+    id: "Group",
+    transform: "translate(1.000000, 40.000000)"
+  }, /*#__PURE__*/react.createElement("g", {
+    id: "Widget-Copy",
+    transform: "translate(410.000000, 155.000000)"
+  }, /*#__PURE__*/react.createElement("g", {
+    id: "icon",
+    transform: "translate(14.000000, 14.000000)"
+  }, /*#__PURE__*/react.createElement("g", {
+    id: "sun",
+    transform: "translate(1.000000, 1.000000)",
+    stroke: "currentColor",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round",
+    "stroke-width": "2"
+  }, /*#__PURE__*/react.createElement("circle", {
+    id: "Oval",
+    strokeOpacity: props.circleOpacity,
+    stroke: props.circleColor,
+    cx: "11",
+    cy: "11",
+    r: "5"
+  }), /*#__PURE__*/react.createElement("path", {
+    d: "M11,0 L11,2",
+    id: "Shape",
+    strokeOpacity: props.raysOpacity,
+    stroke: props.raysColor
+  }), /*#__PURE__*/react.createElement("path", {
+    d: "M11,20 L11,22",
+    id: "Shape",
+    strokeOpacity: props.raysOpacity,
+    stroke: props.raysColor
+  }), /*#__PURE__*/react.createElement("path", {
+    d: "M3.22,3.22 L4.64,4.64",
+    id: "Shape",
+    strokeOpacity: props.raysOpacity,
+    stroke: props.raysColor
+  }), /*#__PURE__*/react.createElement("path", {
+    d: "M17.36,17.36 L18.78,18.78",
+    id: "Shape",
+    strokeOpacity: props.raysOpacity,
+    stroke: props.raysColor
+  }), /*#__PURE__*/react.createElement("path", {
+    d: "M0,11 L2,11",
+    id: "Shape",
+    strokeOpacity: props.raysOpacity,
+    stroke: props.raysColor
+  }), /*#__PURE__*/react.createElement("path", {
+    d: "M20,11 L22,11",
+    id: "Shape",
+    strokeOpacity: props.raysOpacity,
+    stroke: props.raysColor
+  }), /*#__PURE__*/react.createElement("path", {
+    d: "M3.22,18.78 L4.64,17.36",
+    id: "Shape",
+    strokeOpacity: props.raysOpacity,
+    stroke: props.raysColor
+  }), /*#__PURE__*/react.createElement("path", {
+    d: "M17.36,4.64 L18.78,3.22",
+    id: "Shape",
+    strokeOpacity: props.raysOpacity,
+    stroke: props.raysColor
+  })))))))));
+}
+function TemperatureIcon(props) {
+  var _React$createElement;
+  return /*#__PURE__*/react.createElement("svg", {
+    width: "24px",
+    height: "24px",
+    viewBox: "0 0 24 24",
+    version: "1.1",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/react.createElement("title", null, "icon_temperature"), /*#__PURE__*/react.createElement("desc", null, "Created with Sketch."), /*#__PURE__*/react.createElement("g", {
+    id: "Final",
+    stroke: "none",
+    strokeWidth: "1",
+    fill: "none",
+    fillRule: "evenodd"
+  }, /*#__PURE__*/react.createElement("g", {
+    id: "v1-2-1-home-dashboard",
+    transform: "translate(-464.000000, -269.000000)"
+  }, /*#__PURE__*/react.createElement("g", {
+    id: "status",
+    transform: "translate(39.000000, 195.000000)"
+  }, /*#__PURE__*/react.createElement("g", {
+    id: "Group",
+    transform: "translate(1.000000, 40.000000)"
+  }, /*#__PURE__*/react.createElement("g", {
+    id: "Widget",
+    transform: "translate(410.000000, 20.000000)"
+  }, /*#__PURE__*/react.createElement("g", {
+    id: "icon_temperature",
+    transform: "translate(14.000000, 14.000000)"
+  }, /*#__PURE__*/react.createElement("rect", {
+    id: "Rectangle",
+    fillRule: "nonzero",
+    x: "0",
+    y: "0",
+    width: "24",
+    height: "24"
+  }), /*#__PURE__*/react.createElement("path", (_React$createElement = {
+    d: "M14.0003489,14.76 L14.0003489,3.5 C14.0003489,2.11928813 12.8810608,1 11.5003489,1 C10.119637,1 9.00034891,2.11928813 9.00034891,3.5 L9.00034891,14.76 C7.35223452,15.8611927 6.61873572,17.911099 7.19410587,19.8079004 C7.76947602,21.7047019 9.51820196,23.0016574 11.5003489,23.0016574 C13.4824959,23.0016574 15.2312218,21.7047019 15.806592,19.8079004 C16.3819621,17.911099 15.6484633,15.8611927 14.0003489,14.76 Z",
+    id: "Shape",
+    strokeOpacity: "0.4",
+    stroke: props.shapeColor
+  }, _defineProperty(_React$createElement, "strokeOpacity", props.shapeOpacity), _defineProperty(_React$createElement, "strokeWidth", "2"), _defineProperty(_React$createElement, "strokeLinecap", "round"), _defineProperty(_React$createElement, "strokeLinejoin", "round"), _React$createElement)), /*#__PURE__*/react.createElement("circle", {
+    id: "Oval-2",
+    fill: props.circleColor,
+    fillOpacity: props.circleOpacity,
+    fillRule: "nonzero",
+    cx: "11.5",
+    cy: "18.5",
+    r: "3.5"
+  }))))))));
+}
 function Event(props) {
   var ref = react.useRef();
   var onSize = props.onSize;
@@ -8088,29 +8167,41 @@ function Event(props) {
   switch (props.icon) {
     case 'temp':
       {
-        icon = /*#__PURE__*/react.createElement(icon_temperature, {
-          color: "#333333"
+        icon = /*#__PURE__*/react.createElement(TemperatureIcon, {
+          shapeOpacity: 0.4,
+          circleOpacity: 0.1,
+          circleColor: '#333333',
+          shapeColor: '#333333'
         });
         break;
       }
     case 'temp2':
       {
-        icon = /*#__PURE__*/react.createElement(icon_temperature, {
-          color: "#F5A623"
+        icon = /*#__PURE__*/react.createElement(TemperatureIcon, {
+          circleOpacity: 1,
+          shapeOpacity: 1,
+          circleColor: '#FFD93E',
+          shapeColor: '#F5A623'
         });
         break;
       }
     case 'light':
       {
-        icon = /*#__PURE__*/react.createElement(icon_sun, {
-          color: "#333333"
+        icon = /*#__PURE__*/react.createElement(SunIcon, {
+          circleOpacity: 0.4,
+          raysOpacity: 0.1,
+          circleColor: '#333333',
+          raysColor: '#333333'
         });
         break;
       }
     case 'light2':
       {
-        icon = /*#__PURE__*/react.createElement(icon_sun, {
-          color: "#F5A623"
+        icon = /*#__PURE__*/react.createElement(SunIcon, {
+          circleOpacity: 1,
+          raysOpacity: 1,
+          circleColor: '#F5A623',
+          raysColor: '#FFD93E'
         });
         break;
       }

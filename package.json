@@ -19,6 +19,7 @@
     "css-minimizer-webpack-plugin": "^5.0.1",
     "mini-css-extract-plugin": "^2.7.6",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-window": "^1.8.9"
   }
 }

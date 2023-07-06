@@ -1,5 +1,4 @@
 @import "./reset.css";
-@import "bootstrap";
 
 html {
     font-size: 100%;
@@ -55,6 +54,10 @@ html, body {
     width: 6.75rem;
     height: 2.3125rem;
     margin-right: 3.25rem;
+}
+
+.header__logo-icon {
+    width: 100%;
 }
 
 .header__menu {
@@ -277,6 +280,10 @@ html, body {
     background: no-repeat 50% 50% url(assets/bg@2x.png);
     background-size: 1260px;
     border-radius: 1.25rem;
+}
+
+.hero-dashboard__icon_rain {
+   width: 100%;
 }
 
 @media (max-width: 768px) {

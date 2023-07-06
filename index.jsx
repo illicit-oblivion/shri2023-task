@@ -3,8 +3,6 @@ import './reset.css';
 import React from "react";
 import {createRoot} from "react-dom";
 import Logo from './assets/logo.svg';
-import TemperatureIcon from './assets/icon_temperature.svg';
-import SunIcon from './assets/icon_sun.svg';
 import ScheduleIcon from './assets/icon_scheduled.svg';
 import CloudDrizzle from './assets/cloud-drizzle.svg';
 import ListIcon from './assets/icon_list.svg';
@@ -23,7 +21,7 @@ function Header() {
 
     return <header className="header">
         <a href="/" className="header__logo" aria-label="Яндекс.Дом">
-            <Logo />
+            <Logo className={'header__logo-icon'} />
         </a>
         <button className="header__menu" aria-expanded={expanded ? 'true' : 'false'} onClick={onClick}>
             <ListIcon/>
@@ -45,6 +43,59 @@ function Header() {
     </header>;
 }
 
+function SunIcon(props) {
+    return <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <title>icon_sun</title>
+        <desc>Created with Sketch.</desc>
+        <defs></defs>
+        <g id="Final" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+            <g id="v1-2-1-home-dashboard" transform="translate(-464.000000, -404.000000)">
+                <g id="status" transform="translate(39.000000, 195.000000)">
+                    <g id="Group" transform="translate(1.000000, 40.000000)">
+                        <g id="Widget-Copy" transform="translate(410.000000, 155.000000)">
+                            <g id="icon" transform="translate(14.000000, 14.000000)">
+                                <g id="sun" transform="translate(1.000000, 1.000000)" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2">
+                                    <circle id="Oval" strokeOpacity={props.circleOpacity} stroke={props.circleColor} cx="11" cy="11" r="5"></circle>
+                                    <path d="M11,0 L11,2" id="Shape" strokeOpacity={props.raysOpacity} stroke={props.raysColor}></path>
+                                    <path d="M11,20 L11,22" id="Shape" strokeOpacity={props.raysOpacity} stroke={props.raysColor}></path>
+                                    <path d="M3.22,3.22 L4.64,4.64" id="Shape" strokeOpacity={props.raysOpacity} stroke={props.raysColor}></path>
+                                    <path d="M17.36,17.36 L18.78,18.78" id="Shape" strokeOpacity={props.raysOpacity} stroke={props.raysColor}></path>
+                                    <path d="M0,11 L2,11" id="Shape" strokeOpacity={props.raysOpacity} stroke={props.raysColor}></path>
+                                    <path d="M20,11 L22,11" id="Shape" strokeOpacity={props.raysOpacity} stroke={props.raysColor}></path>
+                                    <path d="M3.22,18.78 L4.64,17.36" id="Shape" strokeOpacity={props.raysOpacity} stroke={props.raysColor}></path>
+                                    <path d="M17.36,4.64 L18.78,3.22" id="Shape" strokeOpacity={props.raysOpacity} stroke={props.raysColor}></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </svg>;
+}
+
+function TemperatureIcon(props) {
+    return <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <title>icon_temperature</title>
+        <desc>Created with Sketch.</desc>
+        <g id="Final" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+            <g id="v1-2-1-home-dashboard" transform="translate(-464.000000, -269.000000)">
+                <g id="status" transform="translate(39.000000, 195.000000)">
+                    <g id="Group" transform="translate(1.000000, 40.000000)">
+                        <g id="Widget" transform="translate(410.000000, 20.000000)">
+                            <g id="icon_temperature" transform="translate(14.000000, 14.000000)">
+                                <rect id="Rectangle" fillRule="nonzero" x="0" y="0" width="24" height="24"></rect>
+                                <path d="M14.0003489,14.76 L14.0003489,3.5 C14.0003489,2.11928813 12.8810608,1 11.5003489,1 C10.119637,1 9.00034891,2.11928813 9.00034891,3.5 L9.00034891,14.76 C7.35223452,15.8611927 6.61873572,17.911099 7.19410587,19.8079004 C7.76947602,21.7047019 9.51820196,23.0016574 11.5003489,23.0016574 C13.4824959,23.0016574 15.2312218,21.7047019 15.806592,19.8079004 C16.3819621,17.911099 15.6484633,15.8611927 14.0003489,14.76 Z" id="Shape" stroke={props.shapeColor} strokeOpacity={props.shapeOpacity} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
+                                <circle id="Oval-2" fill={props.circleColor} fillOpacity={props.circleOpacity} fillRule="nonzero" cx="11.5" cy="18.5" r="3.5"></circle>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </svg>;
+}
+
 function Event(props) {
     const ref = React.useRef();
 
@@ -61,19 +112,19 @@ function Event(props) {
     let icon;
     switch (props.icon) {
         case 'temp' : {
-            icon = <TemperatureIcon color={"#333333"} />;
+            icon = <TemperatureIcon shapeOpacity={0.4} circleOpacity={0.1} circleColor={'#333333'} shapeColor={'#333333'} />;
             break;
         }
         case 'temp2' : {
-            icon = <TemperatureIcon color={"#F5A623"} />;
+            icon = <TemperatureIcon circleOpacity={1} shapeOpacity={1} circleColor={'#FFD93E'} shapeColor={'#F5A623'} />;
             break;
         }
         case 'light' : {
-            icon = <SunIcon color={"#333333"} />;
+            icon = <SunIcon circleOpacity={0.4} raysOpacity={0.1} circleColor={'#333333'} raysColor={'#333333'} />;
             break;
         }
         case 'light2' : {
-            icon = <SunIcon color={"#F5A623"} />;
+            icon = <SunIcon circleOpacity={1} raysOpacity={1} circleColor={'#F5A623'} raysColor={'#FFD93E'}  />;
             break;
         }
         case 'schedule' : {
@@ -267,7 +318,7 @@ function Main() {
                                 +19
                                 <span className="a11y-hidden">°</span>
 
-                                <CloudDrizzle className={'hero-dashboard__item-icon'}/>
+                                <CloudDrizzle className={'hero-dashboard__icon hero-dashboard__item-icon'}/>
                             </div>
                         </li>
                     </ul>

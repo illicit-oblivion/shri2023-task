@@ -7883,6 +7883,9 @@ var SvgIconScheduled = function SvgIconScheduled(props) {
     fill: "none",
     fillRule: "evenodd"
   }, /*#__PURE__*/react.createElement("path", {
+    fill: "#F8F8F8",
+    d: "M-925-250H441v768H-925z"
+  }), /*#__PURE__*/react.createElement("path", {
     d: "M0 0h24v24H0z"
   }), /*#__PURE__*/react.createElement("g", {
     stroke: "#000",
@@ -8023,7 +8026,13 @@ function SunIcon(props) {
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, /*#__PURE__*/react.createElement("g", {
+  }, /*#__PURE__*/react.createElement("rect", {
+    fill: "#F8F8F8",
+    x: "0",
+    y: "0",
+    width: "1366",
+    height: "768"
+  }), /*#__PURE__*/react.createElement("g", {
     id: "v1-2-1-home-dashboard",
     transform: "translate(-464.000000, -404.000000)"
   }, /*#__PURE__*/react.createElement("g", {
@@ -8107,7 +8116,13 @@ function TemperatureIcon(props) {
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, /*#__PURE__*/react.createElement("g", {
+  }, /*#__PURE__*/react.createElement("rect", {
+    fill: "#F8F8F8",
+    x: "0",
+    y: "0",
+    width: "1366",
+    height: "768"
+  }), /*#__PURE__*/react.createElement("g", {
     id: "v1-2-1-home-dashboard",
     transform: "translate(-464.000000, -269.000000)"
   }, /*#__PURE__*/react.createElement("g", {

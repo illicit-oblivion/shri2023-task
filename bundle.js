@@ -7861,7 +7861,7 @@ function _extends() { _extends = Object.assign ? Object.assign.bind() : function
 var SvgLogo = function SvgLogo(props) {
   return /*#__PURE__*/react.createElement("svg", _extends({
     xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 112.88 38.04"
+    viewBox: "0 0 112.884 38.04"
   }, props), _path || (_path = /*#__PURE__*/react.createElement("path", {
     fill: "red",
     d: "M9.35 21.43v8.68h2.44V7.45H8.15c-3.59 0-6.6 2.38-6.6 7.13 0 3.39 1.33 5.23 3.33 6.25L.63 30.11h2.83l3.86-8.68zm0-2.03h-1.3c-2.12 0-3.87-1.17-3.87-4.82 0-3.77 1.91-5.07 3.87-5.07h1.3z"

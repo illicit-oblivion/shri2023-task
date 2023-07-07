@@ -9728,12 +9728,6 @@ function shouldComponentUpdate(nextProps, nextState) {
 }
 
 ;// CONCATENATED MODULE: ./index.jsx
-function index_typeof(obj) { "@babel/helpers - typeof"; return index_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, index_typeof(obj); }
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return index_typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (index_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (index_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
@@ -10134,13 +10128,41 @@ var EventContainer = function EventContainer(_ref) {
   var data = _ref.data,
     index = _ref.index,
     style = _ref.style;
-  return /*#__PURE__*/react.createElement("div", {
-    style: _objectSpread(_objectSpread({}, style), {}, {
-      padding: padding + 'px',
-      boxSizing: 'border-box'
-    })
+  return /*#__PURE__*/react.createElement("li", {
+    className: "list_item",
+    style: style
   }, /*#__PURE__*/react.createElement(Event, data[index]));
 };
+var Outer = /*#__PURE__*/(0,react.forwardRef)(function (_ref2, ref) {
+  var style = _ref2.style,
+    children = _ref2.children,
+    className = _ref2.className,
+    onScroll = _ref2.onScroll;
+  var classes = className.split(' ').filter(Boolean);
+  var tab = classes.shift();
+  var activeTab = classes.shift();
+  return /*#__PURE__*/react.createElement("div", {
+    role: "tabpanel",
+    className: classes.join(' '),
+    "aria-hidden": tab === activeTab ? 'false' : 'true',
+    id: "panel_".concat(tab),
+    "aria-labelledby": "tab_".concat(tab)
+    // style={{overflow: 'hidden'}}
+    ,
+    ref: ref,
+    onScroll: onScroll,
+    style: style
+  }, children);
+});
+var Track = /*#__PURE__*/(0,react.forwardRef)(function (_ref3, ref) {
+  var style = _ref3.style,
+    children = _ref3.children;
+  return /*#__PURE__*/react.createElement("ul", {
+    className: "section__panel-list",
+    ref: ref,
+    style: style
+  }, children);
+});
 function Main() {
   var ref = react.useRef();
   var initedRef = react.useRef(false);
@@ -10187,7 +10209,6 @@ function Main() {
     _useState2 = _slicedToArray(_useState, 2),
     width = _useState2[0],
     setWidth = _useState2[1];
-  console.log(TABS[activeTab].items.length * (elementWidth + padding * 2) - padding * 2, width);
   (0,react.useLayoutEffect)(function () {
     var element = ref === null || ref === void 0 ? void 0 : ref.current;
     if (!element) return;
@@ -10317,25 +10338,18 @@ function Main() {
     className: "section__panel-wrapper",
     ref: ref
   }, TABS_KEYS.map(function (key) {
-    return /*#__PURE__*/react.createElement("div", {
+    return /*#__PURE__*/react.createElement(FixedSizeList, {
       key: key,
-      role: "tabpanel",
-      className: 'section__panel' + (key === activeTab ? '' : ' section__panel_hidden'),
-      "aria-hidden": key === activeTab ? 'false' : 'true',
-      id: "panel_".concat(key),
-      "aria-labelledby": "tab_".concat(key),
-      style: {
-        overflow: 'hidden'
-      }
-    }, /*#__PURE__*/react.createElement(FixedSizeList, {
-      className: 'section__panel-list',
-      width: width + padding * 2,
-      height: 120 + padding * 2,
+      className: "".concat(key, " ").concat(activeTab, " section__panel").concat(key === activeTab ? '' : ' section__panel_hidden'),
+      width: width + padding,
+      innerElementType: Track,
+      outerElementType: Outer,
+      height: 120,
       itemData: TABS[key].items,
       itemSize: elementWidth + padding * 2,
       itemCount: TABS[key].items.length,
       layout: "horizontal"
-    }, EventContainer));
+    }, EventContainer);
   }), TABS[activeTab].items.length * (elementWidth + padding * 2) - padding * 2 > width && /*#__PURE__*/react.createElement("div", {
     className: "section__arrow",
     onClick: onArrowCLick

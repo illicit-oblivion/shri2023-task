@@ -504,14 +504,13 @@ html, body {
 }
 
 .section__panel-list {
-    display: flex;
-    gap: 0.9375rem;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
 .section__panel-wrapper {
+    margin: -7.5px 0 0 -7.5px;
     position: relative;
 }
 

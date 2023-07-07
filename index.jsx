@@ -1,11 +1,12 @@
 import './styles.css';
 import './reset.css';
-import React from "react";
+import React, {useEffect, useLayoutEffect, useState} from "react";
 import {createRoot} from "react-dom";
 import Logo from './assets/logo.svg';
 import ScheduleIcon from './assets/icon_scheduled.svg';
 import CloudDrizzle from './assets/cloud-drizzle.svg';
 import ListIcon from './assets/icon_list.svg';
+import { FixedSizeList } from 'react-window';
 
 function Header() {
     let [expanded, setExpanded] = React.useState(false);
@@ -133,7 +134,7 @@ function Event(props) {
         }
     }
 
-    return <li ref={ref} className={'event' + (props.slim ? ' event_slim' : '')}>
+    return <div ref={ref} className={'event' + (props.slim ? ' event_slim' : '')} style={props.style}>
         <button className="event__button">
             <span className={'event__icon'} role={'img'}>{icon}</span>
             <h4 className="event__title">{props.title}</h4>
@@ -141,7 +142,7 @@ function Event(props) {
                 <span className="event__subtitle">{props.subtitle}</span>
             }
         </button>
-    </li>;
+    </div>;
 }
 
 const TABS = {
@@ -256,10 +257,18 @@ for (let i = 0; i < 6; ++i) {
 }
 const TABS_KEYS = Object.keys(TABS);
 
+const padding = 7.5;
+
+const EventContainer = ({ data, index, style }) => {
+    return <div style={{...style, padding: padding + 'px', boxSizing: 'border-box'}}>
+        <Event {...data[index]}  />
+    </div>;
+}
+
 function Main() {
     const ref = React.useRef();
     const initedRef = React.useRef(false);
-    const [activeTab, setActiveTab] = React.useState('');
+    const [activeTab, setActiveTab] = React.useState('all');
     const [hasRightScroll, setHasRightScroll] = React.useState(false);
 
     React.useEffect(() => {
@@ -288,7 +297,7 @@ function Main() {
     });
 
     const onArrowCLick = () => {
-        const scroller = ref.current.querySelector('.section__panel:not(.section__panel_hidden)');
+        const scroller = ref.current.querySelector('.section__panel:not(.section__panel_hidden) .section__panel-list');
         if (scroller) {
             scroller.scrollTo({
                 left: scroller.scrollLeft + 400,
@@ -296,6 +305,23 @@ function Main() {
             });
         }
     };
+
+    const [width, setWidth] = useState(0);
+
+    useLayoutEffect(() => {
+        const element = ref?.current;
+
+        if (!element) return;
+
+        const observer = new ResizeObserver((entries) => {
+            setWidth(entries[0].contentRect.width);
+        });
+
+        observer.observe(element);
+        return () => {
+            observer.disconnect();
+        };
+    }, [])
 
     return <main className="main">
         <section className="section main__general">
@@ -419,18 +445,20 @@ function Main() {
             <div className="section__panel-wrapper" ref={ref}>
                 {TABS_KEYS.map(key =>
                     <div key={key} role="tabpanel" className={'section__panel' + (key === activeTab ? '' : ' section__panel_hidden')} aria-hidden={key === activeTab ? 'false' : 'true'} id={`panel_${key}`} aria-labelledby={`tab_${key}`}>
-                        <ul className="section__panel-list">
-                            {TABS[key].items.map((item, index) =>
-                                <Event
-                                    key={index}
-                                    {...item}
-                                    onSize={onSize}
-                                />
-                            )}
-                        </ul>
+                        <FixedSizeList
+                            className={'section__panel-list'}
+                            width={width}
+                            height={120 + padding * 2}
+                            itemData={TABS[key].items}
+                            itemSize={200 + padding * 2}
+                            itemCount={TABS[key].items.length}
+                            layout="horizontal"
+                        >
+                            {EventContainer}
+                        </FixedSizeList>
                     </div>
                 )}
-                {hasRightScroll &&
+                {TABS[activeTab].items.length * (200 + padding * 2) > document.documentElement.clientWidth &&
                     <div className="section__arrow" onClick={onArrowCLick}></div>
                 }
             </div>

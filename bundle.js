@@ -10321,10 +10321,13 @@ function Main() {
       className: 'section__panel' + (key === activeTab ? '' : ' section__panel_hidden'),
       "aria-hidden": key === activeTab ? 'false' : 'true',
       id: "panel_".concat(key),
-      "aria-labelledby": "tab_".concat(key)
+      "aria-labelledby": "tab_".concat(key),
+      style: {
+        overflow: 'hidden'
+      }
     }, /*#__PURE__*/react.createElement(FixedSizeList, {
       className: 'section__panel-list',
-      width: width,
+      width: width + 30,
       height: 120 + padding * 2,
       itemData: TABS[key].items,
       itemSize: 200 + padding * 2,

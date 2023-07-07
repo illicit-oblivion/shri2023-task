@@ -10187,6 +10187,7 @@ function Main() {
     _useState2 = _slicedToArray(_useState, 2),
     width = _useState2[0],
     setWidth = _useState2[1];
+  console.log(TABS[activeTab].items.length * (elementWidth + padding * 2) - padding * 2, width);
   (0,react.useLayoutEffect)(function () {
     var element = ref === null || ref === void 0 ? void 0 : ref.current;
     if (!element) return;
@@ -10335,7 +10336,7 @@ function Main() {
       itemCount: TABS[key].items.length,
       layout: "horizontal"
     }, EventContainer));
-  }), TABS[activeTab].items.length * (elementWidth + padding * 2) - padding * 2 > document.documentElement.clientWidth && /*#__PURE__*/react.createElement("div", {
+  }), TABS[activeTab].items.length * (elementWidth + padding * 2) - padding * 2 > width && /*#__PURE__*/react.createElement("div", {
     className: "section__arrow",
     onClick: onArrowCLick
   }))));

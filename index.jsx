@@ -1,6 +1,6 @@
 import './styles.css';
 import './reset.css';
-import React, {useEffect, useLayoutEffect, useState} from "react";
+import React, {createContext, forwardRef, useContext, useEffect, useLayoutEffect, useState} from "react";
 import {createRoot} from "react-dom";
 import Logo from './assets/logo.svg';
 import ScheduleIcon from './assets/icon_scheduled.svg';
@@ -258,12 +258,34 @@ for (let i = 0; i < 6; ++i) {
 const TABS_KEYS = Object.keys(TABS);
 
 const padding = 7.5;
+const elementWidth = 200;
 
 const EventContainer = ({ data, index, style }) => {
-    return <div style={{...style, padding: padding + 'px', boxSizing: 'border-box'}}>
+    return <li className="list_item" style={style}>
         <Event {...data[index]}  />
-    </div>;
+    </li>;
 }
+
+const Outer = forwardRef(({style, children, className, onScroll}, ref) => {
+    const classes = className.split(' ').filter(Boolean);
+    const tab = classes.shift();
+    const activeTab = classes.shift();
+    return <div
+        role="tabpanel"
+        className={classes.join(' ')}
+        aria-hidden={tab === activeTab ? 'false' : 'true'}
+        id={`panel_${tab}`} aria-labelledby={`tab_${tab}`}
+        // style={{overflow: 'hidden'}}
+        ref={ref}
+        onScroll={onScroll}
+        style={style}>
+        {children}
+    </div>
+});
+
+const Track = forwardRef(({style, children}, ref) => {
+    return <ul className="section__panel-list" ref={ref} style={style}>{children}</ul>
+});
 
 function Main() {
     const ref = React.useRef();
@@ -444,21 +466,22 @@ function Main() {
 
             <div className="section__panel-wrapper" ref={ref}>
                 {TABS_KEYS.map(key =>
-                    <div key={key} role="tabpanel" className={'section__panel' + (key === activeTab ? '' : ' section__panel_hidden')} aria-hidden={key === activeTab ? 'false' : 'true'} id={`panel_${key}`} aria-labelledby={`tab_${key}`}>
-                        <FixedSizeList
-                            className={'section__panel-list'}
-                            width={width}
-                            height={120 + padding * 2}
-                            itemData={TABS[key].items}
-                            itemSize={200 + padding * 2}
-                            itemCount={TABS[key].items.length}
-                            layout="horizontal"
-                        >
-                            {EventContainer}
-                        </FixedSizeList>
-                    </div>
+                    <FixedSizeList
+                        key={key}
+                        className={`${key} ${activeTab} section__panel${key === activeTab ? '' : ' section__panel_hidden'}`}
+                        width={width + padding}
+                        innerElementType={Track}
+                        outerElementType={Outer}
+                        height={120}
+                        itemData={TABS[key].items}
+                        itemSize={elementWidth + padding * 2}
+                        itemCount={TABS[key].items.length}
+                        layout="horizontal"
+                    >
+                        {EventContainer}
+                    </FixedSizeList>
                 )}
-                {TABS[activeTab].items.length * (200 + padding * 2) > document.documentElement.clientWidth &&
+                {TABS[activeTab].items.length * (elementWidth + padding * 2) - padding * 2 > width &&
                     <div className="section__arrow" onClick={onArrowCLick}></div>
                 }
             </div>

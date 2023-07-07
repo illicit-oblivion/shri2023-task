@@ -10129,6 +10129,7 @@ for (var i = 0; i < 6; ++i) {
 }
 var TABS_KEYS = Object.keys(TABS);
 var padding = 7.5;
+var elementWidth = 200;
 var EventContainer = function EventContainer(_ref) {
   var data = _ref.data,
     index = _ref.index,
@@ -10327,14 +10328,14 @@ function Main() {
       }
     }, /*#__PURE__*/react.createElement(FixedSizeList, {
       className: 'section__panel-list',
-      width: width + 30,
+      width: width + padding * 2,
       height: 120 + padding * 2,
       itemData: TABS[key].items,
-      itemSize: 200 + padding * 2,
+      itemSize: elementWidth + padding * 2,
       itemCount: TABS[key].items.length,
       layout: "horizontal"
     }, EventContainer));
-  }), TABS[activeTab].items.length * (200 + padding * 2) > document.documentElement.clientWidth && /*#__PURE__*/react.createElement("div", {
+  }), TABS[activeTab].items.length * (elementWidth + padding * 2) - padding * 2 > document.documentElement.clientWidth && /*#__PURE__*/react.createElement("div", {
     className: "section__arrow",
     onClick: onArrowCLick
   }))));
